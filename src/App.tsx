@@ -1,5 +1,6 @@
 import React from 'react';
-import { Star, Heart, Mail, Github, ExternalLink } from 'lucide-react';
+import { Star, Mail, Github } from 'lucide-react';
+import { BubbleScene } from './components/BubbleScene';
 
 function App() {
   return (
@@ -16,39 +17,23 @@ function App() {
         </div>
 
         {/* Main Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* About Me */}
+        <div className="grid grid-cols-1 gap-8">
+          {/* Fragments Section */}
           <div className="bg-white/80 backdrop-blur-sm p-8 rounded-xl shadow-lg">
             <div className="flex items-center mb-4">
               <Star className="w-6 h-6 text-pastel-yellow mr-2" />
-              <h2 className="font-pixel text-2xl">About Me</h2>
+              <h2 className="font-pixel text-2xl">Fragments of My Mind</h2>
             </div>
-            <p className="text-gray-700 leading-relaxed">
-              I'm a passionate developer who loves creating beautiful and functional websites.
-              When I'm not coding, you can find me exploring new technologies or enjoying a cup of coffee.
-            </p>
+            <div className="space-y-3 text-gray-700">
+              <p className="font-pixel text-lg text-pastel-purple">⌨️ code whisperer</p>
+              <p className="font-pixel text-lg text-pastel-blue">☕ caffeinated dreamer</p>
+              <p className="font-pixel text-lg text-pastel-pink">✨ pixel perfectionist</p>
+            </div>
           </div>
 
-          {/* Projects */}
-          <div className="bg-white/80 backdrop-blur-sm p-8 rounded-xl shadow-lg">
-            <div className="flex items-center mb-4">
-              <Heart className="w-6 h-6 text-pastel-pink mr-2" />
-              <h2 className="font-pixel text-2xl">Projects</h2>
-            </div>
-            <ul className="space-y-4">
-              <li className="flex items-center">
-                <ExternalLink className="w-4 h-4 mr-2 text-pastel-purple" />
-                <a href="#" className="text-gray-700 hover:text-pastel-purple transition-colors">
-                  Project 1
-                </a>
-              </li>
-              <li className="flex items-center">
-                <ExternalLink className="w-4 h-4 mr-2 text-pastel-purple" />
-                <a href="#" className="text-gray-700 hover:text-pastel-purple transition-colors">
-                  Project 2
-                </a>
-              </li>
-            </ul>
+          {/* Bubbles Scene */}
+          <div className="h-[600px]">
+            <BubbleScene />
           </div>
         </div>
 
