@@ -1,40 +1,35 @@
 import { Canvas } from '@react-three/fiber';
-import { Environment, Shadow, OrbitControls, Float, Text } from '@react-three/drei';
+import { Environment, Shadow, OrbitControls, Float } from '@react-three/drei';
 import { Bubble } from './Bubble';
-import { useEffect } from 'react';
+import * as THREE from 'three';
 
-const bubbleData: Array<{ position: [number, number, number]; label: string }> = [
-  { position: [-4, 0, 0], label: "Projects" },
-  { position: [-2, 0, 2], label: "Blog" },
-  { position: [0, 0, -2], label: "Art" },
-  { position: [2, 0, 2], label: "Music" },
-  { position: [4, 0, 0], label: "Photos" },
+const bubbleData = [
+  { position: [-6, 2, -2] as [number, number, number], label: "Projects" },
+  { position: [-3, -1, 2] as [number, number, number], label: "Blog" },
+  { position: [0, 1.5, -3] as [number, number, number], label: "Art" },
+  { position: [3, -1, 2] as [number, number, number], label: "Music" },
+  { position: [6, 2, -2] as [number, number, number], label: "Photos" },
 ];
 
 export function BubbleScene() {
-  useEffect(() => {
-    console.log('BubbleScene mounted');
-  }, []);
-
   return (
-    <Canvas camera={{ position: [0, 5, 15], fov: 65 }}>
-      <color attach="background" args={["#000"]} />
-      <ambientLight intensity={0.5} />
-      <pointLight position={[10, 10, 10]} intensity={1} />
-      <pointLight position={[-10, -10, -10]} intensity={0.5} />
+    <Canvas 
+      camera={{ position: [0, 0, 10], fov: 45 }} 
+      style={{ background: 'transparent' }}
+      gl={{ 
+        antialias: true,
+        toneMapping: THREE.ACESFilmicToneMapping,
+        outputEncoding: THREE.sRGBEncoding
+      }}
+    >
       {bubbleData.map((bubble, index) => (
-        <Float key={index} floatIntensity={1.5} speed={0.5}>
-          <Bubble position={bubble.position} label={bubble.label} />
-          <Text
-            position={[bubble.position[0], bubble.position[1] - 2, bubble.position[2]]}
-            fontSize={0.5}
-            color="white"
-            anchorX="center"
-            anchorY="middle"
-          >
-            {bubble.label}
-          </Text>
-          <Shadow scale={2} position={[bubble.position[0], -1.35, bubble.position[2]]} opacity={0.15} />
+        <Float key={index} floatIntensity={2} speed={2} rotationIntensity={2}>
+          <Bubble {...bubble} />
+          <Shadow 
+            scale={3} 
+            position={[bubble.position[0], -2, bubble.position[2]]} 
+            opacity={0.2} 
+          />
         </Float>
       ))}
       <OrbitControls 

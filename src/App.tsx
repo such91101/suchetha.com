@@ -5,7 +5,7 @@ import { BubbleScene } from './components/BubbleScene';
 function App() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-pastel-blue via-white to-pastel-pink">
-      <div className="max-w-4xl mx-auto px-4 py-16">
+      <div className="max-w-4xl mx-auto px-4 py-16 relative">
         {/* Header */}
         <div className="text-center mb-16">
           <div className="inline-block bg-white p-6 rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300">
@@ -32,7 +32,7 @@ function App() {
           </div>
 
           {/* Bubbles Scene */}
-          <div className="h-[600px] bg-gray-900 rounded-xl overflow-hidden">
+          <div className="h-[600px]">
             <BubbleScene />
           </div>
         </div>
