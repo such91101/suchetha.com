@@ -32,7 +32,7 @@ function App() {
           </div>
 
           {/* Bubbles Scene */}
-          <div className="h-[600px]">
+          <div className="h-[600px] bg-gray-900 rounded-xl overflow-hidden">
             <BubbleScene />
           </div>
         </div>
